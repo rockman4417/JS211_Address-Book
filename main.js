@@ -25,7 +25,6 @@ const consoleUsers = () => {
         arrayOfUsers.push(userObject.results[i])
     }
     arrayOfUsers.sort((a, b) => a.name.last.localeCompare(b.name.last))
-
   console.log(userObject)
   console.log(arrayOfUsers)
   
@@ -38,6 +37,8 @@ const displayUsers = () => {
     const div = document.createElement('div')
     div.classList.add("user-div")
     let img = new Image()
+    const bar = document.createElement('div')
+    bar.classList.add("bar-div")
     img.src = user.picture.medium
     div.id = index
     const text = document.createTextNode(`${user.name.title} ${user.name.first} ${user.name.last}`)
@@ -46,11 +47,10 @@ const displayUsers = () => {
         showInfoButton.classList.add('glow-on-hover')
         showInfoButton.innerHTML = "Show Info"
         showInfoButton.addEventListener('click', function() {showInfo(user, index)} )
+        div.appendChild(bar)
         div.appendChild(img)
         div.appendChild(text)
-    
     div.appendChild(showInfoButton)
-    
     allPosts.append(div)
   })
 }
